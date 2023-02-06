@@ -223,7 +223,7 @@ services:
     depends_on:
       - mongo
     ports:
-      - "9000:9000"
+      - "9000:3000"
 
    chat21httpserver:
     image: chat21/chat21-http-server:0.2.16
