@@ -103,7 +103,7 @@ services:
       - FIREBASE_VAPID
       - CHAT_STORAGE_PREFIX=chat_sv5
       - "API_BASEIMAGE_URL=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io}/api/"
-   ports:
+    ports:
       - "4500:4501" #use expose if you want to block external access
 
    webwidget:
