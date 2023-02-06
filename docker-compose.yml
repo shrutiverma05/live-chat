@@ -1,33 +1,33 @@
 version: '3'
 services:
-   https-portal:
-    image: steveltn/https-portal:1
-    ports:
-      - '443:443'
-      - '80:80'
-    links:
-      # - rocketchat
-      # - mongodb
-      - dashboard
-      - webwidget
-      - ionic
-      - proxy
-      - server
-      - chat21httpserver
-      - chat21server
-      - rabbitmq
-      - mongo
-      - redis
-    restart: on-failure
-    # environment:
-    #   DOMAINS: 'uat.ml.novacept.io -> http://api:8000 , uat.nlu.ml.novacept.io -> http://nlu:8080 , uat.kb.novacept.io -> http://streamlit:8501 , uat.kb.node.novacept.io -> http://node:8051'
-    #   STAGE: 'production' # Don't use production until staging works
-    #   # FORCE_RENEW: 'true'
-    #   WEBSOCKET: 'true'
-    env_file:
-      - .env
-    volumes: 
-      - https-portal-data:/var/lib/https-portal
+  #  https-portal:
+  #   image: steveltn/https-portal:1
+  #   ports:
+  #     - '443:443'
+  #     - '80:80'
+  #   links:
+  #     # - rocketchat
+  #     # - mongodb
+  #     - dashboard
+  #     - webwidget
+  #     - ionic
+  #     - proxy
+  #     - server
+  #     - chat21httpserver
+  #     - chat21server
+  #     - rabbitmq
+  #     - mongo
+  #     - redis
+  #   restart: on-failure
+  #   # environment:
+  #   #   DOMAINS: 'uat.ml.novacept.io -> http://api:8000 , uat.nlu.ml.novacept.io -> http://nlu:8080 , uat.kb.novacept.io -> http://streamlit:8501 , uat.kb.node.novacept.io -> http://node:8051'
+  #   #   STAGE: 'production' # Don't use production until staging works
+  #   #   # FORCE_RENEW: 'true'
+  #   #   WEBSOCKET: 'true'
+  #   env_file:
+  #     - .env
+  #   volumes: 
+  #     - https-portal-data:/var/lib/https-portal
     
 
   #  rocketchat:
@@ -323,5 +323,5 @@ services:
     
 volumes:
   mongodb_data: { driver: local }
-  https-portal-data:
+  # https-portal-data:
   tiledesk-datadb:
