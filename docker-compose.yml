@@ -103,6 +103,8 @@ services:
       - FIREBASE_VAPID
       - CHAT_STORAGE_PREFIX=chat_sv5
       - "API_BASEIMAGE_URL=${EXTERNAL_BASE_URL:-http://localhost:8081}/api/"
+    env_file:
+       - env.tiledesk
     ports:
       - "4500:80" #use expose if you want to block external access
 
@@ -135,6 +137,8 @@ services:
       - DASHBOARD_URL=/dashboard/   
       - AUTH_PERSISTENCE=LOCAL
       - ENBED_JS=true
+    env_file:
+       - env.tiledesk
    ionic:
     image: chat21/chat21-ionic:3.0.89
     container_name: chat21-ionic
@@ -170,6 +174,8 @@ services:
       - EMAIL_SECTION=true
       - CHAT_STORAGE_PREFIX=chat_sv5
       - WS_URL_RELATIVE=/ws/
+    env_file:
+       - env.tiledesk
    proxy:
     image: tiledesk/tiledesk-docker-proxy:v1.1.1
     container_name: tiledesk-docker-proxy   
@@ -182,6 +188,8 @@ services:
       - chat21httpserver
       - rabbitmq
     command: [nginx-debug, '-g', 'daemon off;']
+    env_file:
+       - env.tiledesk
     
    server:
     image: tiledesk/tiledesk-server:2.3.69
@@ -224,6 +232,8 @@ services:
       - mongo
     ports:
       - "9000:3000"
+    env_file:
+       - env.tiledesk
 
    chat21httpserver:
     image: chat21/chat21-http-server:0.2.16
@@ -245,6 +255,8 @@ services:
       - PUSH_WH_WEBHOOK_TOKEN=WHFyAhecCMkYsvldLFWbSrJt7lAZFAmrp7O5QVMvGQsLVn9SkfT
       - CACHE_ENABLED=false
       - CONTACTS_LOOKUP_ENDPOINT=http://server:9000/users_util
+    env_file:
+       - env.tiledesk
     depends_on:
       - mongo
       - rabbitmq
@@ -268,6 +280,8 @@ services:
       - mongo
       - rabbitmq
       - server 
+    env_file:
+       - env.tiledesk
    rabbitmq:
     image: chat21/chat21-rabbitmq
     container_name: rabbitmq
@@ -280,6 +294,8 @@ services:
         - 15672:15672
         - 1883:1883
         - 15675:15675
+    env_file:
+       - env.tiledesk
     # healthcheck:
     #     test: [ "CMD", "nc", "-z", "localhost", "5672" ]
     #     interval: 5s
