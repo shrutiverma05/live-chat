@@ -41,7 +41,7 @@ services:
       DEPLOY_METHOD: docker
       DEPLOY_PLATFORM: ${DEPLOY_PLATFORM}
     env_file:
-      - .env.example
+      - env.example
     depends_on:
       - mongodb
     expose:
@@ -64,7 +64,7 @@ services:
       MONGODB_ENABLE_JOURNAL: ${MONGODB_ENABLE_JOURNAL:-true}
       ALLOW_EMPTY_PASSWORD: ${ALLOW_EMPTY_PASSWORD:-yes}
     env_file:
-      - .env.example
+      - env.example
     
 volumes:
   mongodb_data: { driver: local }
