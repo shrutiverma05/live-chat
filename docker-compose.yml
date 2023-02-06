@@ -77,7 +77,7 @@ services:
     container_name: tiledesk-dashboard 
     environment: 
       - FEATURES_TOKEN=NAT:T-DEV:T-TRI:T-GRO:T-DEP:T-OPH:T-MTL:T-CAR:T-LBS:T-NOT:T-MTT:T-RAS:T-ANA:T-ACT:T-TIL:T-SUP:T-APP:T
-      - "WIDGET_LOCATION=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io/widget/launch.js"
+      - "WIDGET_LOCATION=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io}/widget/launch.js"
       - BOT_CREDENTIAL_URL=/api/modules/dialogflow/botcredendials/
       - RASA_BOT_CREDENTIAL_URL=/api/modules/rasa/botcredendials/
       - SERVER_BASE_URL=/api/
@@ -102,7 +102,7 @@ services:
       - FIREBASE_APP_ID
       - FIREBASE_VAPID
       - CHAT_STORAGE_PREFIX=chat_sv5
-      - "API_BASEIMAGE_URL=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io/api/"
+      - "API_BASEIMAGE_URL=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io}/api/"
    ports:
       - "4500:4501" #use expose if you want to block external access
 
@@ -117,8 +117,8 @@ services:
       - PUSH_ENGINE=none
       - LOG_LEVEL=info
       - FILE_UPLOAD_ACCEPT=*/*
-      - "MQTT_ENDPOINT=${EXTERNAL_MQTT_BASE_URL:-ws://uat.tile.novacept.io/mqws/ws"
-      - "MQTT_APIENDPOINT=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io/chatapi/api"      
+      - "MQTT_ENDPOINT=${EXTERNAL_MQTT_BASE_URL:-ws://uat.tile.novacept.io}/mqws/ws"
+      - "MQTT_APIENDPOINT=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io}/chatapi/api"      
       #- MQTT_LOGINSERVICE_ENDPOINT=/api/chat21/native/auth/createCustomToken      
       - FIREBASE_APIKEY
       - FIREBASE_AUTHDOMAIN
@@ -128,10 +128,10 @@ services:
       - FIREBASE_MESSAGINGSENDERID
       - FIREBASE_TENANT=tilechat
       - UPLOAD_ENGINE=native
-      - "API_URL=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io/api/"
-      - "TRANSLATIONS_URL=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io/api/"
+      - "API_URL=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io}/api/"
+      - "TRANSLATIONS_URL=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io}/api/"
       #- API_BASEIMAGE_URL=https://firebasestorage.googleapis.com/v0/b/    For firebase
-      - "API_BASEIMAGE_URL=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io/api/"   
+      - "API_BASEIMAGE_URL=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io}/api/"   
       - DASHBOARD_URL=/dashboard/   
       - AUTH_PERSISTENCE=LOCAL
       - ENBED_JS=true
@@ -151,7 +151,7 @@ services:
       - FILE_UPLOAD_ACCEPT=*/*
       - CHAT21_ENGINE=mqtt
       - MQTT_APPID=tilechat
-      - "MQTT_ENDPOINT=${EXTERNAL_MQTT_BASE_URL:-ws://uat.tile.novacept.io/mqws/ws"
+      - "MQTT_ENDPOINT=${EXTERNAL_MQTT_BASE_URL:-ws://uat.tile.novacept.io}/mqws/ws"
       - MQTT_APIENDPOINT=/chatapi/api
       #- MQTT_LOGINSERVICE_ENDPOINT=/api/chat21/native/auth/createCustomToken
       - UPLOAD_ENGINE=native
@@ -205,10 +205,10 @@ services:
       - EMAIL_PORT
       - EMAIL_PASSWORD
       - EMAIL_FROM_ADDRESS
-      - "EMAIL_BASEURL=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io/dashboard"
-      - "WEBHOOK_ORIGIN=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io/api/"
-      - "WIDGET_LOCATION=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io/widget/launch.js"
-      - "WIDGET_TEST_LOCATION=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io/widget/assets/test_widget_page/index.html"
+      - "EMAIL_BASEURL=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io}/dashboard}"
+      - "WEBHOOK_ORIGIN=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io}/api/}"
+      - "WIDGET_LOCATION=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io}/widget/launch.js}"
+      - "WIDGET_TEST_LOCATION=${EXTERNAL_BASE_URL:-https://uat.tile.novacept.io}/widget/assets/test_widget_page/index.html"
       - WS_SERVER_PATH     
       #PLEASE DON'T PASTE THE LICENSE KEY HERE USE .ENV FILE. DOCKER ISSUE WITH /n char
       - LICENSE_KEY
