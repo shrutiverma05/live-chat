@@ -40,10 +40,10 @@ services:
       - env.example
     depends_on:
       - mongodb
-    expose:
-      - ${PORT:-3000}
+    # expose:
+    #   - ${PORT:-3000}
     ports:
-      - "${BIND_IP:-0.0.0.0}:${HOST_PORT:-3000}:${PORT:-3000}"
+      - "3000:3000"
     
    mongodb:
     image: docker.io/bitnami/mongodb:${MONGODB_VERSION:-4.4}
