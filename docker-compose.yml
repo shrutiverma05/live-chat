@@ -18,8 +18,7 @@ services:
       - .env
     volumes: 
       - https-portal-data:/var/lib/https-portal
-    networks:
-       - test-network
+    
 
    rocketchat:
     image: registry.rocket.chat/rocketchat/rocket.chat:${RELEASE:-latest}
@@ -47,9 +46,7 @@ services:
       - ${PORT:-3000}
     ports:
       - "${BIND_IP:-0.0.0.0}:${HOST_PORT:-3000}:${PORT:-3000}"
-    networks:
-       - test-network
-
+    
    mongodb:
     image: docker.io/bitnami/mongodb:${MONGODB_VERSION:-4.4}
     restart: on-failure
@@ -64,8 +61,7 @@ services:
       MONGODB_ADVERTISED_HOSTNAME: ${MONGODB_ADVERTISED_HOSTNAME:-mongodb}
       MONGODB_ENABLE_JOURNAL: ${MONGODB_ENABLE_JOURNAL:-true}
       ALLOW_EMPTY_PASSWORD: ${ALLOW_EMPTY_PASSWORD:-yes}
-    networks:
-       - test-network
+    
 volumes:
   mongodb_data: { driver: local }
   https-portal-data:
